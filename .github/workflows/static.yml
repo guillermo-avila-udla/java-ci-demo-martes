@@ -77,16 +77,9 @@ jobs:
       - name: Checkstyle
         run: |
           mvn compile
+          mvn exec:java -Dexec.mainClass="com.example.Main"
           mvn checkstyle:checkstyle
           cp -r target/site/* output/
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'output'
 
   # Job separado para el despliegue
   deploy:
