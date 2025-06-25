@@ -76,6 +76,7 @@ jobs:
 
       - name: Checkstyle
         run: |
+          mvn compile
           mvn checkstyle:checkstyle
           cp -r target/site/* output/
 
